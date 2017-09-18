@@ -26,7 +26,7 @@ var list = [{
   },{
   "name": "Rasmus",
   "score": "0",
-  "topArtist": ["Chance the Rapper","2jack White","Post Malone"],
+  "topArtist": ["Chance the Rapper","Jack White","Post Malone"],
   "otherArtist": ["TBA"]
   },{
   "name": "Arbring",
