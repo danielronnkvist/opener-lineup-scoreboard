@@ -10,6 +10,7 @@ $( document ).ready(function() {
   DrawScoreboard()
   DrawLineup()
   DrawInfo()
+  createGraph()
 });
 
 function Init() {
@@ -105,3 +106,49 @@ function PrintScoreboard() {
   }
   console.log('==================================================')
 }
+
+function createGraph() {
+    var names = new Array()
+    var scores = new Array()
+    var bgColors = []
+    var bgBorders = []
+    var r1, r2, r3;
+
+    for (var i = 0; i < list.length; i++) {
+        names[i] = list[i].name
+        scores[i] = list[i].score
+        r1 = (Math.floor(Math.random() * 255) + 1)
+        r2 = (Math.floor(Math.random() * 255) + 1)
+        r3 = (Math.floor(Math.random() * 255) + 1)
+        bgColors.push('rgba(' + r1 + ', ' + r2 + ', ' + r3 + ', 0.8)')
+        bgBorders.push('rgba(' + r1 + ', ' + r2 + ', ' + r3 + ', 1)')
+    }
+
+    var ctx = document.getElementById("scoreGraph");
+    var myChart = new Chart(ctx,
+        {
+            type: 'bar',
+            data: {
+              labels: names,
+              datasets: [{
+		          data: scores,
+		          backgroundColor: bgColors,
+		          borderColor: bgBorders,
+		          borderWidth: 2
+		          }]
+            },
+            options: {
+              legend: {
+	            display: false
+            },
+            scales: {
+	            yAxes: [{
+		            ticks: {
+			            beginAtZero: true
+		            }
+		        }]
+	        }
+        }
+      }
+	);
+};

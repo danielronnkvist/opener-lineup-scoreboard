@@ -10,7 +10,7 @@ body {
 
 }
 
-#header, #scoreboard, #lineup, #info, #footer {
+#header, #scoreboard, #lineup, #info, #footer, #graph {
   margin-top: 10%;
   text-align: center;
 }
